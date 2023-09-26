@@ -1,12 +1,14 @@
 
 
 function imprimirInput(){
-    
-    return document.getElementById("mostrar").innerHTML += "CLIC ";
+
+    let elementoHTML = document.getElementById('mostrar');
+            if(elementoHTML){
+                return (elementoHTML as HTMLElement).innerHTML +="CLIC ";}
 }
 
 
-const throttle: object = (callback: object, limit: number) => {
+const throttle = (callback: object, limit: number) => {
 
 
     let bloqueador: boolean = true;
@@ -14,7 +16,9 @@ const throttle: object = (callback: object, limit: number) => {
 
     return function(){
         if (typeof(callback) !== 'function'){
-            return document.getElementById("mostrar").innerHTML = "ERROR: el callback debe ser una función";
+            let elementoHTML = document.getElementById('mostrar');
+            if(elementoHTML){
+                return (elementoHTML as HTMLElement).innerHTML ="ERROR: el callback debe ser una función";}
         } else 
         
         if (bloqueador === true){

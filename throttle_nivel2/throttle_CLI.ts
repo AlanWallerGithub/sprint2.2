@@ -10,7 +10,7 @@ function imprimirInput(){
 }
 
 
-const throttle: object = (callback: object, limit: number) => {
+const throttle = (callback: object, limit: number) => {
 
 
     let bloqueador: boolean = true;
@@ -37,7 +37,7 @@ const throttle: object = (callback: object, limit: number) => {
     
 }
 
-const imprimirConThrottle: object = throttle(imprimirInput,1000);
+const imprimirConThrottle = throttle(imprimirInput,1000);
 
 
 function funcionCLI(){
@@ -47,9 +47,10 @@ stdin.setRawMode( true );
 stdin.resume();
 stdin.setEncoding( 'utf8' );
 
-stdin.on( 'data', function( key ){
+stdin.on( 'data', function( key: Buffer ){
+    let bufferUTF8 = key.toString('utf8')
   // El loop se rompe con BARRA ESPACIADORA
-  if ( key === '\u0020' ) {
+  if ( bufferUTF8 === '\u0020' ) {
 
     
     process.exit();

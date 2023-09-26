@@ -32,8 +32,9 @@ function funcionCLI() {
     stdin.resume();
     stdin.setEncoding('utf8');
     stdin.on('data', function (key) {
+        let bufferUTF8 = key.toString('utf8');
         // El loop se rompe con BARRA ESPACIADORA
-        if (key === '\u0020') {
+        if (bufferUTF8 === '\u0020') {
             process.exit();
         }
         imprimirConThrottle();

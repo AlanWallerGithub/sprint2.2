@@ -1,12 +1,18 @@
 "use strict";
 function imprimirInput() {
-    return document.getElementById("mostrar").innerHTML += "CLIC ";
+    let elementoHTML = document.getElementById('mostrar');
+    if (elementoHTML) {
+        return elementoHTML.innerHTML += "CLIC ";
+    }
 }
 const throttle = (callback, limit) => {
     let bloqueador = true;
     return function () {
         if (typeof (callback) !== 'function') {
-            return document.getElementById("mostrar").innerHTML = "ERROR: el callback debe ser una función";
+            let elementoHTML = document.getElementById('mostrar');
+            if (elementoHTML) {
+                return elementoHTML.innerHTML = "ERROR: el callback debe ser una función";
+            }
         }
         else if (bloqueador === true) {
             callback();
